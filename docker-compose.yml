@@ -1,0 +1,27 @@
+nginx:
+    image: nginx:latest
+    ports:
+        - "80:80"
+    volumes:
+        - ${CODE_DIR_HOST}:${CODE_DIR_GUEST}
+        - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+        - php
+
+php:
+    image: bendbennett/php7-fpm:latest
+    volumes:
+        - ${CODE_DIR_HOST}:${CODE_DIR_GUEST}
+    links:
+        - mongo
+
+mongo:
+    image: mongo:latest
+    volumes:
+       - mongo-data:/data/db
+
+composer:
+    image: bendbennett/composer:latest
+    volumes:
+        - ${CODE_DIR_HOST}:${CODE_DIR_GUEST}
+    command: install --working-dir=${CODE_DIR_GUEST} --verbose
