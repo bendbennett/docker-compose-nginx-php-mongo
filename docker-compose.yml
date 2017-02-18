@@ -9,9 +9,10 @@ nginx:
         - php
 
 php:
-    image: bendbennett/php7-fpm:latest
+    image: bendbennett/php7-fpm:v0.2.0
     volumes:
         - ${CODE_DIR_HOST}:${CODE_DIR_GUEST}
+        - ./php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
     links:
         - mongo
 
@@ -21,7 +22,7 @@ mongo:
        - mongo-data:/data/db
 
 composer:
-    image: bendbennett/composer:latest
+    image: composer:latest
     volumes:
         - ${CODE_DIR_HOST}:${CODE_DIR_GUEST}
-    command: install --working-dir=${CODE_DIR_GUEST} --verbose
+    command: install --working-dir=${CODE_DIR_GUEST} --ignore-platform-reqs --verbose
