@@ -8,8 +8,8 @@
 
 ## Edit the .env file
 * Edit the `.env` file and set `CODE_DIR_HOST` to reflect the location of the source code on your host machine.
-* `CODE_DIR_GUEST` is set to `/var/www/code`, if this is altered then `root` within `nginx/default.conf` will also need updating.
-    * currently `root` in `default.conf` is set to `/var/www/code/web` to serve Symfony 2.
+* `CODE_DIR_GUEST` is set to `/var/www/html`, if this is altered then `root` within `nginx/default.conf` will also need updating.
+    * currently `root` in `default.conf` is set to `/var/www/html/web` to serve Symfony 3.
      
 ## Run docker-compose up
 * `cd` into the directory containing `docker-compose.yml`
