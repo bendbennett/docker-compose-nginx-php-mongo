@@ -1,10 +1,10 @@
 # Setting Up Local Docker Dev Environment for PHP 7 & Mongo 3
 
 ## General
-* Tested on OS-X v10.11 with:
-    * Docker version 1.12.0
-    * docker-compose version 1.8.0
-    * docker-machine version 0.8.0 
+* Tested on OS-X v10.12 with:
+    * docker-machine version 0.10.0 
+      * docker version (running on docker-machine) v17.06.0-ce
+    * docker-compose version 1.12.0
 
 ## Edit the .env file
 * Edit the `.env` file and set `CODE_DIR_HOST` to reflect the location of the source code on your host machine.
