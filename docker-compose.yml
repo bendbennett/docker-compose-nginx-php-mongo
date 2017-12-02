@@ -16,7 +16,7 @@ services:
   php:
     env_file:
       - .env
-    image: bendbennett/php7-fpm:v0.3.0
+    image: bendbennett/php7-fpm:v0.4.0
     networks:
       - webnet
     volumes:
