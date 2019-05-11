@@ -9,7 +9,7 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
   php:
-    image: bendbennett/php7-fpm:v0.4.0
+    image: bendbennett/php7-fpm:v0.5.0
 
   mongo:
     image: mongo:latest
