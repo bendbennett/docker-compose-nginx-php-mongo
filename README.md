@@ -1,9 +1,9 @@
 # Setting Up Local Docker Dev Environment for PHP 7 & Mongo 3
 
 ## General
-* Tested on OS-X v10.13 with:
-    * docker desktop 2.0.0.2
-    * docker 18.09.1
+* Tested on OS-X v10.14 with:
+    * docker desktop 2.0.0.3
+    * docker 18.09.2
     * docker-compose 1.23.2
 
 ## Edit the .env file
