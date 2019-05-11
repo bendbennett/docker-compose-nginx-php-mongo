@@ -1,41 +1,15 @@
-version: "3"
+version: "2"
 
 services:
   nginx:
-    env_file:
-      - .env
     image: nginx:latest
-    networks:
-      - webnet
     ports:
       - "80:80"
     volumes:
-      - ${CODE_DIR_HOST}:${CODE_DIR_GUEST}
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
   php:
-    env_file:
-      - .env
     image: bendbennett/php7-fpm:v0.4.0
-    networks:
-      - webnet
-    volumes:
-      - ${CODE_DIR_HOST}:${CODE_DIR_GUEST}
 
   mongo:
     image: mongo:latest
-    networks:
-      - webnet
-    volumes:
-      - ./mongo-data:/data/db
-
-  composer:
-    env_file:
-      - .env
-    image: composer:latest
-    volumes:
-      - ${CODE_DIR_HOST}:${CODE_DIR_GUEST}
-    command: install --working-dir=${CODE_DIR_GUEST} --ignore-platform-reqs --verbose
-
-networks:
-  webnet:

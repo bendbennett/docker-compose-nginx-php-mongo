@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  nginx:
+    volumes:
+      - api-src-sync:${CODE_DIR_CONTAINER}:nocopy # nocopy is important
+
+  php:
+    volumes:
+      - api-src-sync:${CODE_DIR_CONTAINER}:nocopy # nocopy is important
+
+  mongo:
+    volumes:
+      - mongo-data-sync:${MONGO_DATA_DIR_CONTAINER}:nocopy # nocopy is important
+
+  composer:
+    image: composer:latest
+    volumes:
+      - api-src-sync:${CODE_DIR_CONTAINER}:nocopy
+    command: install --working-dir=${CODE_DIR_CONTAINER} --ignore-platform-reqs --verbose
+
+volumes:
+  api-src-sync:
+    external: true
+
+  mongo-data-sync:
+    external: true

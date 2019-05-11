@@ -1,0 +1,10 @@
+version: "2"
+
+syncs:
+  api-src-sync:
+    sync_strategy: native_osx
+    src: ${CODE_DIR_HOST}
+
+  mongo-data-sync:
+    sync_strategy: native_osx
+    src: ${MONGO_DATA_DIR_HOST}
