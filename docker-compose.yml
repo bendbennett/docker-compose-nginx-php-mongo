@@ -2,14 +2,14 @@ version: "2"
 
 services:
   nginx:
-    image: nginx:latest
+    image: bendbennett/nginx:1.17
     ports:
       - "80:80"
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    # volumes:
+      # - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
   php:
-    image: bendbennett/php7-fpm:v0.5.0
+    image: bendbennett/php7-fpm:7.3
 
   mongo:
-    image: mongo:latest
+    image: bendbennett/mongo-seeded:4.0
