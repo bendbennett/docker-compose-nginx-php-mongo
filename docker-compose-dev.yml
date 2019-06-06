@@ -14,10 +14,10 @@ services:
       - mongo-data-sync:${MONGO_DATA_DIR_CONTAINER}:nocopy # nocopy is important
 
   composer:
-    image: composer:latest
+    image: bendbennett/composer:1.8
     volumes:
       - api-src-sync:${CODE_DIR_CONTAINER}:nocopy
-    command: install --working-dir=${CODE_DIR_CONTAINER} --ignore-platform-reqs --verbose
+    command: install --working-dir=${CODE_DIR_CONTAINER} --verbose
 
 volumes:
   api-src-sync:
