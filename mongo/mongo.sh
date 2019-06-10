@@ -4,7 +4,7 @@ AVAILABILITY_ZONE=$(curl --connect-timeout 5 http://169.254.169.254/latest/meta-
 
 if [[ $AVAILABILITY_ZONE == *"eu-west"* ]]; then
     # Start mongo daemon as we're overriding CMD ["mongod"] in the base docker image - https://github.com/docker-library/mongo/blob/812b8fb401a929c312c7222a26b707a6415450c6/3.4/Dockerfile
-    /entrpoint.sh mongod --bind_ip_all --replSet "rs0" &
+    /entrypoint.sh mongod --bind_ip_all --replSet "rs0" &
 else
     /entrypoint.sh mongod --bind_ip_all &
 fi
